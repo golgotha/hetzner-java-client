@@ -12,7 +12,6 @@ import io.github.golgotha.hetzner.config.HetznerProperties;
 import io.github.golgotha.hetzner.transport.HttpTransport;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URLEncoder;
 
 public class ServerApi {
@@ -48,7 +47,7 @@ public class ServerApi {
         try {
             return httpTransport.post(url, request, ServerResponse.class);
         } catch (IOException | InterruptedException e) {
-            throw new HetznerApiException("Unable to fetch servers list", e);
+            throw new HetznerApiException("Unable to create a server", e);
         }
     }
 
@@ -62,7 +61,7 @@ public class ServerApi {
         try {
             return httpTransport.get(url, ServerResponse.class);
         } catch (IOException | InterruptedException e) {
-            throw new HetznerApiException("Unable to fetch servers list", e);
+            throw new HetznerApiException("Unable to fetch a server", e);
         }
     }
 
@@ -76,7 +75,7 @@ public class ServerApi {
         try {
             return httpTransport.put(url, request, ServerResponse.class);
         } catch (IOException | InterruptedException e) {
-            throw new HetznerApiException("Unable to delete server", e);
+            throw new HetznerApiException("Unable to update a server", e);
         }
     }
 
@@ -85,7 +84,7 @@ public class ServerApi {
         try {
             return httpTransport.delete(url, ActionResponse.class);
         } catch (IOException | InterruptedException e) {
-            throw new HetznerApiException("Unable to delete server", e);
+            throw new HetznerApiException("Unable to delete a server", e);
         }
     }
 
@@ -119,7 +118,7 @@ public class ServerApi {
         try {
             return httpTransport.get(url, MetricsResponse.class);
         } catch (IOException | InterruptedException e) {
-            throw new HetznerApiException("Unable to fetch servers list", e);
+            throw new HetznerApiException("Unable to fetch servers metrics", e);
         }
     }
 
