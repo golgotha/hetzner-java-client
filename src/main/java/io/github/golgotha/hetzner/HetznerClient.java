@@ -1,5 +1,7 @@
 package io.github.golgotha.hetzner;
 
+import io.github.golgotha.hetzner.api.DatacenterApi;
+import io.github.golgotha.hetzner.api.LocationApi;
 import io.github.golgotha.hetzner.api.ServerApi;
 import io.github.golgotha.hetzner.config.HetznerProperties;
 
@@ -19,6 +21,14 @@ public class HetznerClient {
 
     public ServerApi servers() {
         return new ServerApi(properties);
+    }
+
+    public LocationApi locations() {
+        return new LocationApi(properties);
+    }
+
+    public DatacenterApi datacenters() {
+        return new DatacenterApi(properties);
     }
 
     public static class Builder {
