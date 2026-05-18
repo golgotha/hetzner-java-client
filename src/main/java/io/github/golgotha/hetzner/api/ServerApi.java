@@ -56,7 +56,7 @@ public class ServerApi {
      * @param serverId ID of the Server.
      * @return
      */
-    public ServerResponse getServer(int serverId) {
+    public ServerResponse getServer(long serverId) {
         final var url = buildUrl("/servers/" + serverId);
         try {
             return httpTransport.get(url, ServerResponse.class);
