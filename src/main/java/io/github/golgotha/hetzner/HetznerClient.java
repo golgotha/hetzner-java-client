@@ -1,8 +1,6 @@
 package io.github.golgotha.hetzner;
 
-import io.github.golgotha.hetzner.api.DatacenterApi;
-import io.github.golgotha.hetzner.api.LocationApi;
-import io.github.golgotha.hetzner.api.ServerApi;
+import io.github.golgotha.hetzner.api.*;
 import io.github.golgotha.hetzner.config.HetznerProperties;
 
 import java.time.Duration;
@@ -20,15 +18,15 @@ public class HetznerClient {
     }
 
     public ServerApi servers() {
-        return new ServerApi(properties);
+        return new ServerApiImpl(properties);
     }
 
     public LocationApi locations() {
-        return new LocationApi(properties);
+        return new LocationApiImpl(properties);
     }
 
     public DatacenterApi datacenters() {
-        return new DatacenterApi(properties);
+        return new DatacenterApiImpl(properties);
     }
 
     public static class Builder {
